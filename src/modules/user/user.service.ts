@@ -13,9 +13,12 @@ export class UserService {
     return this.userRepo.findOne({ where: { id } });
   }
 
-  public createUser(body: CreateUserDto): Promise<User> {
-    const newUser: User = this.userRepo.create(body);
+  public getUsers(): Promise<User[]> {
+    return this.userRepo.find();
+  }
 
+  public createUser(body: CreateUserDto): Promise<User> {
+    const newUser = this.userRepo.create(body);
     return this.userRepo.save(newUser);
   }
 }

@@ -1,5 +1,6 @@
 import {
   BaseEntity,
+  Column,
   CreateDateColumn,
   DeleteDateColumn,
   PrimaryGeneratedColumn,
@@ -9,6 +10,11 @@ import {
 export class AbstractEntity extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
+
+  @Column({
+    default: false,
+  })
+  isDeleted: boolean;
 
   @CreateDateColumn()
   createdAt: Date;
