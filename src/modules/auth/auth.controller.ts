@@ -14,4 +14,9 @@ export class AuthController {
   handleRedirect() {
     return this.authService.handleGoogleRedirect();
   }
+
+  @Get("/google/token")
+  verifyToken() {
+    return this.authService.verifyAuthIdToken("token")
+  }
 }
